@@ -1,0 +1,738 @@
+/* RDF Graph Viewer Plugin Styles */
+
+.rdf-graph-container {
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-primary);
+  position: relative;
+}
+
+/* Legend overlay */
+.rdf-legend {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 10;
+  display: flex;
+  gap: 12px;
+  padding: 5px 10px;
+  background-color: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  font-size: 11px;
+  color: var(--text-muted);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+/* Alignment legend (side-by-side view) */
+.rdf-alignment-legend {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 12px;
+  background-color: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  font-size: 11px;
+  color: var(--text-muted);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.rdf-alignment-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rdf-alignment-legend-a::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background-color: #5b9bd5;
+  border: 2px solid #5b9bd5;
+  border-radius: 50%;
+}
+
+.rdf-alignment-legend-b::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background-color: #f0a04b;
+  border: 2px solid #f0a04b;
+  border-radius: 50%;
+}
+
+.rdf-alignment-legend-both::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background-color: #9b6bd5;
+  border: 2px solid #c9aef0;
+  border-radius: 50%;
+}
+
+.rdf-alignment-legend-explicit::before {
+  content: '';
+  width: 20px;
+  height: 2px;
+  background-color: rgba(107, 199, 125, 0.85);
+  border-top: 2px dashed rgba(107, 199, 125, 0.85);
+}
+
+.rdf-alignment-legend-suggested::before {
+  content: '';
+  width: 20px;
+  height: 2px;
+  background-color: rgba(230, 200, 80, 0.7);
+  border-top: 2px dotted rgba(230, 200, 80, 0.9);
+}
+
+.rdf-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rdf-legend-glyph {
+  font-size: 13px;
+}
+
+/* =====================
+   Source editor pane (split view)
+   ===================== */
+.rdf-source-container {
+  width: 45%;
+  min-width: 280px;
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--background-modifier-border);
+  background-color: var(--background-primary);
+  overflow: hidden;
+}
+
+.rdf-source-editor-host {
+  flex: 1;
+  overflow: hidden;
+}
+
+.rdf-source-editor-host .cm-editor {
+  height: 100%;
+}
+
+/* Highlighted lines (graph hover sync) */
+.rdf-src-highlight {
+  background-color: rgba(232, 85, 109, 0.18) !important;
+  border-left: 2px solid #e8556d;
+}
+
+/* Parse error banner */
+.rdf-parse-error {
+  padding: 5px 10px;
+  font-size: 11px;
+  font-family: var(--font-monospace);
+  color: #ff8896;
+  background-color: rgba(232, 85, 109, 0.1);
+  border-bottom: 1px solid rgba(232, 85, 109, 0.3);
+  white-space: pre-wrap;
+}
+
+/* Active toolbar toggle */
+.rdf-toolbar-btn-active {
+  background-color: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+}
+
+/* =====================
+   Term hover tooltip (prefix → remote vocab preview)
+   ===================== */
+.rdf-term-tooltip {
+  max-width: 360px;
+  padding: 10px 12px;
+  background-color: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  font-size: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.rdf-term-tooltip-header strong {
+  color: var(--interactive-accent);
+  font-size: 13px;
+}
+
+.rdf-term-tooltip-uri {
+  font-family: var(--font-monospace);
+  font-size: 10px;
+  color: var(--text-faint);
+  word-break: break-all;
+  margin: 3px 0 6px 0;
+}
+
+.rdf-term-tooltip-label {
+  font-weight: bold;
+  color: var(--text-normal);
+  margin-bottom: 4px;
+}
+
+.rdf-term-tooltip-comment {
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.rdf-term-tooltip-muted {
+  color: var(--text-faint);
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.rdf-term-tooltip-btn {
+  margin-top: 4px;
+  padding: 3px 10px;
+  font-size: 11px;
+  background-color: var(--interactive-normal);
+  color: var(--text-normal);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.rdf-term-tooltip-btn:hover {
+  background-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+.rdf-term-tooltip-graph {
+  margin-top: 8px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  background-color: var(--background-primary);
+  overflow: hidden;
+}
+
+.rdf-term-tooltip-body {
+  margin-bottom: 8px;
+}
+
+/* =====================
+   LOV search suggestions
+   ===================== */
+.rdf-lov-type {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.rdf-lov-suggestion strong {
+  color: var(--interactive-accent);
+}
+
+.rdf-lov-title {
+  color: var(--text-normal);
+}
+
+.rdf-lov-uri {
+  font-size: 11px;
+  font-family: var(--font-monospace);
+  color: var(--text-faint);
+}
+
+/* Status bar */
+.rdf-status-bar {
+  padding: 3px 12px;
+  font-size: 11px;
+  color: var(--text-muted);
+  background-color: var(--background-secondary);
+  border-top: 1px solid var(--background-modifier-border);
+  font-family: var(--font-monospace);
+  flex-shrink: 0;
+}
+
+.rdf-graph-container canvas {
+  outline: none;
+}
+
+/* Node styles based on type */
+.rdf-node-class {
+  --rdf-node-color: #4a90e2;
+}
+
+.rdf-node-property {
+  --rdf-node-color: #50c878;
+}
+
+.rdf-node-instance {
+  --rdf-node-color: #ffa500;
+}
+
+.rdf-node-literal {
+  --rdf-node-color: #999;
+}
+
+/* Edge styles */
+.rdf-edge-tbox {
+  --rdf-edge-color: #4a90e2;
+}
+
+.rdf-edge-abox {
+  --rdf-edge-color: #ffa500;
+}
+
+/* =====================
+   Toolbar
+   ===================== */
+.rdf-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background-color: var(--background-secondary);
+  border-bottom: 1px solid var(--background-modifier-border);
+  flex-wrap: wrap;
+}
+
+.rdf-search-input {
+  flex: 1;
+  min-width: 120px;
+  max-width: 250px;
+  padding: 4px 8px;
+  font-size: 12px;
+  background-color: var(--background-primary);
+  color: var(--text-normal);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  outline: none;
+}
+
+.rdf-search-input:focus {
+  border-color: var(--interactive-accent);
+}
+
+.rdf-layout-select {
+  padding: 4px 6px;
+  font-size: 12px;
+  background-color: var(--background-primary);
+  color: var(--text-normal);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+}
+
+.rdf-filter-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rdf-filter-label {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.rdf-filter-label input[type="checkbox"] {
+  margin: 0;
+}
+
+.rdf-toolbar-btn {
+  padding: 4px 10px;
+  font-size: 12px;
+  background-color: var(--interactive-normal);
+  color: var(--text-normal);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.rdf-toolbar-btn:hover {
+  background-color: var(--interactive-hover);
+}
+
+.rdf-toolbar-btn:active {
+  background-color: var(--interactive-active);
+}
+
+/* =====================
+   View mode tabs
+   ===================== */
+.rdf-mode-bar {
+  display: flex;
+  gap: 0;
+  background-color: var(--background-secondary);
+  border-bottom: 1px solid var(--background-modifier-border);
+  padding: 0 10px;
+}
+
+.rdf-mode-btn {
+  padding: 6px 16px;
+  font-size: 12px;
+  background: transparent;
+  color: var(--text-muted);
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.rdf-mode-btn:hover {
+  color: var(--text-normal);
+  background-color: var(--background-modifier-hover);
+}
+
+.rdf-mode-active {
+  color: var(--interactive-accent) !important;
+  border-bottom-color: var(--interactive-accent) !important;
+  font-weight: bold;
+}
+
+/* =====================
+   Main area (graph + sidebar)
+   ===================== */
+.rdf-main-area {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* =====================
+   Hierarchy / Properties / Stats panels
+   ===================== */
+.rdf-hierarchy-container,
+.rdf-properties-container,
+.rdf-stats-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 20px;
+}
+
+.rdf-panel-title {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  color: var(--text-normal);
+}
+
+.rdf-panel-subtitle {
+  margin: 20px 0 8px 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.rdf-empty-message {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Tree (class hierarchy) */
+.rdf-tree-item {
+  padding: 2px 0;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+
+.rdf-tree-toggle {
+  color: var(--text-muted);
+  user-select: none;
+  min-width: 16px;
+}
+
+.rdf-tree-label {
+  color: var(--text-normal);
+  cursor: pointer;
+}
+
+.rdf-tree-label:hover {
+  color: var(--interactive-accent);
+  text-decoration: underline;
+}
+
+.rdf-tree-count {
+  color: var(--text-muted);
+  font-size: 11px;
+  margin-left: 4px;
+}
+
+/* Properties table */
+.rdf-props-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.rdf-props-table th {
+  text-align: left;
+  padding: 6px 8px;
+  border-bottom: 2px solid var(--background-modifier-border);
+  color: var(--text-muted);
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.rdf-props-table td {
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--background-modifier-border);
+  word-break: break-all;
+}
+
+.rdf-prop-name {
+  font-weight: bold;
+  color: var(--text-normal);
+}
+
+.rdf-prop-type-object { color: #4a90e2; }
+.rdf-prop-type-datatype { color: #50c878; }
+.rdf-prop-type-annotation { color: #b58dd8; }
+.rdf-prop-type-rdf { color: var(--text-muted); }
+
+/* Stats */
+.rdf-stats-uri {
+  margin-bottom: 16px;
+  font-size: 12px;
+}
+
+.rdf-stats-label {
+  color: var(--text-muted);
+  font-weight: bold;
+}
+
+.rdf-stats-value-mono {
+  font-family: monospace;
+  font-size: 11px;
+  color: var(--text-normal);
+  word-break: break-all;
+}
+
+.rdf-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.rdf-stats-card {
+  background-color: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  padding: 14px;
+  text-align: center;
+}
+
+.rdf-stats-number {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--interactive-accent);
+}
+
+.rdf-stats-caption {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* =====================
+   Sidebar
+   ===================== */
+.rdf-sidebar {
+  width: 280px;
+  min-width: 280px;
+  padding: 12px;
+  background-color: var(--background-secondary);
+  border-left: 1px solid var(--background-modifier-border);
+  overflow-y: auto;
+  font-size: 12px;
+}
+
+.rdf-sidebar-hint {
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 40px;
+}
+
+.rdf-sidebar-header h3 {
+  margin: 0 0 6px 0;
+  font-size: 14px;
+  color: var(--text-normal);
+  word-break: break-all;
+}
+
+.rdf-sidebar-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.rdf-sidebar-badge-class {
+  background-color: rgba(74, 144, 226, 0.2);
+  color: #4a90e2;
+}
+
+.rdf-sidebar-badge-property {
+  background-color: rgba(80, 200, 120, 0.2);
+  color: #50c878;
+}
+
+.rdf-sidebar-badge-instance {
+  background-color: rgba(255, 165, 0, 0.2);
+  color: #ffa500;
+}
+
+.rdf-sidebar-badge-literal {
+  background-color: rgba(153, 153, 153, 0.2);
+  color: #999;
+}
+
+.rdf-sidebar-badge-unknown {
+  background-color: rgba(153, 153, 153, 0.2);
+  color: #999;
+}
+
+.rdf-sidebar-section {
+  margin-bottom: 12px;
+}
+
+.rdf-sidebar-section-title {
+  margin: 0 0 4px 0;
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.rdf-sidebar-uri {
+  padding: 4px 6px;
+  background-color: var(--background-primary);
+  border-radius: 3px;
+  word-break: break-all;
+  font-family: monospace;
+  font-size: 11px;
+  color: var(--text-normal);
+}
+
+.rdf-sidebar-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.rdf-sidebar-table tr {
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.rdf-sidebar-table td {
+  padding: 3px 4px;
+  vertical-align: top;
+}
+
+.rdf-sidebar-key {
+  font-weight: bold;
+  color: var(--text-muted);
+  width: 40%;
+}
+
+.rdf-sidebar-value {
+  color: var(--text-normal);
+  word-break: break-all;
+}
+
+.rdf-sidebar-connections {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rdf-sidebar-connections li {
+  padding: 3px 0;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.rdf-conn-dir {
+  color: var(--text-muted);
+}
+
+.rdf-conn-pred {
+  color: var(--interactive-accent);
+  font-weight: bold;
+}
+
+.rdf-conn-target {
+  color: var(--text-normal);
+}
+
+.rdf-sidebar-close {
+  margin-top: 12px;
+  padding: 4px 12px;
+  font-size: 11px;
+  background-color: var(--interactive-normal);
+  color: var(--text-normal);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.rdf-sidebar-close:hover {
+  background-color: var(--interactive-hover);
+}
+
+/* Loading spinner */
+.rdf-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-muted);
+}
+
+.rdf-loading::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--text-muted);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: rdf-spin 1s linear infinite;
+  margin-left: 8px;
+}
+
+@keyframes rdf-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Empty state */
+.rdf-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 20px;
+}
+
+.rdf-empty svg {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.rdf-empty p {
+  margin: 0;
+  font-size: 14px;
+}

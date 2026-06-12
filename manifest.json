@@ -1,0 +1,10 @@
+{
+  "id": "obsidian-rdf-builder",
+  "name": "RDF Graph Builder",
+  "version": "1.1.0",
+  "minAppVersion": "0.15.0",
+  "description": "Craft, visualize, align and evolve RDF ontologies in Obsidian. Live source↔graph editing, SPARQL, LOV search, multiple visualizations.",
+  "author": "Artemis-IA",
+  "authorUrl": "https://github.com/Artemis-IA",
+  "isDesktopOnly": false
+}
